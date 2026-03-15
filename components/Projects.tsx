@@ -2,63 +2,71 @@
 
 const projects = [
   {
-    id: 1,
+    id: 'priceoptima',
     title: 'PriceOptima',
     subtitle: 'AI Dynamic Pricing System',
-    desc: 'ML system that recommends optimal product prices using historical sales and inventory data. Uses XGBoost and LightGBM to predict price ranges that maximize revenue.',
-    tags: ['Python', 'XGBoost', 'LightGBM', 'FastAPI', 'ML'],
+    period: 'Feb 2026 – Present',
+    desc: 'End-to-end ML-powered dynamic pricing system built during Infosys Springboard internship. Built a 17-step data cleaning pipeline, engineered 12 pricing signals, and benchmarked XGBoost vs LightGBM models against a rule-based baseline using KPIs like revenue lift, conversion rate, and profit margin.',
+    tags: ['Python', 'XGBoost', 'LightGBM', 'FastAPI', 'React.js', 'PostgreSQL', 'Pandas'],
     emoji: '💰',
     status: 'Active — Infosys Internship',
     statusColor: '#22c55e',
     github: 'https://github.com/nagamanibuddepu',
-    highlights: ['XGBoost & LightGBM prediction', 'REST API for insights', 'Feature engineering', 'Revenue optimization'],
+    live: null,
+    highlights: ['17-step data cleaning pipeline', '12 engineered pricing signals', 'XGBoost vs LightGBM benchmarking', 'FastAPI + React dashboard'],
   },
   {
-    id: 2,
+    id: 'logistics-optimizer',
     title: 'AI Logistics Optimizer',
-    subtitle: 'SIH 2025 Grand Finalist',
-    desc: 'AI-driven logistics optimization for steel supply chain. Optimized vessel scheduling and dispatch planning with Random Forest predicting pre-berthing delays.',
-    tags: ['Python', 'Random Forest', 'Optimization', 'ML', 'Supply Chain'],
+    subtitle: 'Steel Supply Chain — SIH 2025',
+    period: 'Oct 2025 – Dec 2025',
+    desc: 'AI-driven logistics optimization for 5 steel plants across eastern India. Built an OR optimization engine handling 4 cost variables and 6 operational constraints for port-to-plant dispatch planning of coking coal and limestone. Random Forest model predicts pre-berthing delays with what-if analysis.',
+    tags: ['Python', 'Random Forest', 'OR Optimization', 'ML', 'Supply Chain', 'What-if Analysis'],
     emoji: '🚢',
     status: 'SIH 2025 Grand Finalist',
     statusColor: '#f59e0b',
     github: 'https://github.com/nagamanibuddepu',
-    highlights: ['Random Forest delay prediction', 'Vessel scheduling', 'Real-time dispatch planning', 'Top 2% of 68K+ teams'],
+    live: null,
+    highlights: ['OR engine: 4 cost vars, 6 constraints', 'Random Forest delay prediction', 'What-if dispatch simulation', 'Top 2% of 68,000+ teams'],
   },
   {
-    id: 3,
-    title: 'AI Price Tracker',
-    subtitle: 'Cross-Platform Price Comparison',
-    desc: 'Full-stack web app that scrapes and compares product prices across e-commerce platforms in real time. Includes wishlist price-drop alerts and an AI chatbot recommending fashion & beauty products based on skin type and body type.',
-    tags: ['Node.js', 'Python', 'AI Chatbot', 'Web Scraping', 'PostgreSQL', 'REST API'],
+    id: 'pricetracker',
+    title: 'PriceTracker',
+    subtitle: 'AI-Powered Price Comparison Platform',
+    period: 'May 2025 – Jun 2025',
+    desc: 'Full-stack price comparison engine aggregating identical SKUs across 10 major Indian e-commerce platforms via 3 concurrent data pipelines. Replaced sequential Puppeteer scraping with BullMQ + Redis job queue — cutting execution from 25s to ~7s (72% reduction). Features 30-day price history, wishlist alerts, and Google Gemini AI deal assistant.',
+    tags: ['Next.js', 'Node.js', 'MongoDB', 'Redis', 'BullMQ', 'Puppeteer', 'Google Gemini'],
     emoji: '🔍',
-    status: 'Completed',
+    status: 'Live',
     statusColor: '#7B6CF6',
     github: 'https://github.com/nagamanibuddepu/PriceTracker',
-    highlights: ['Real-time cross-platform scraping', 'AI chatbot for style picks', 'Wishlist price-drop alerts', 'Smart product deduplication'],
+    live: 'https://pricetracker-production-4711.up.railway.app/',
+    highlights: ['10 platforms: Amazon, Flipkart, Myntra+', 'BullMQ queue: 25s → 7s (72% faster)', '30-day price history tracking', 'Google Gemini deal assistant'],
   },
   {
-    id: 4,
-    title: 'Elderly Fall Detection',
-    subtitle: 'IoT Safety & Alert System',
-    desc: 'IoT-based fall detection system using accelerometer and gyroscope sensor data to identify fall events in real time. Instantly triggers automated alerts to caregivers when a fall is detected.',
-    tags: ['IoT', 'Python', 'Accelerometer', 'Gyroscope', 'Alert System'],
-    emoji: '🏥',
-    status: 'Completed',
+    id: 'fallguard',
+    title: 'FallGuard',
+    subtitle: 'IoT-Based Elderly Fall Detection',
+    period: 'Sep 2023 – Nov 2023',
+    desc: 'Fall detection prototype using NodeMCU (ESP8266) and MPU6050 IMU sensor. Implemented a multi-threshold algorithm on acceleration magnitude and orientation change to classify falls with minimal false positives. WiFi-based emergency alerts via IFTTT Webhooks instantly notify caregivers upon detection.',
+    tags: ['NodeMCU', 'ESP8266', 'MPU6050', 'Python', 'IFTTT Webhooks', 'IoT', 'C++'],
+    emoji: '🛡️',
+    status: 'Live Demo',
     statusColor: '#06b6d4',
     github: 'https://github.com/nagamanibuddepu/Fall_Detection',
-    highlights: ['Accelerometer + gyroscope fusion', 'Real-time fall detection', 'Instant caregiver alerts', 'Low-latency embedded processing'],
+    live: 'https://nagamanibuddepu.github.io/Fall_Detection/',
+    highlights: ['NodeMCU + MPU6050 sensor fusion', 'Multi-threshold fall algorithm', 'WiFi alerts via IFTTT Webhooks', 'Minimal false positive rate'],
   },
 ]
 
 function Card({ p }: { p: typeof projects[0] }) {
   return (
-    <div className="glass" style={{ borderRadius: 20, padding: 24, display: 'flex', flexDirection: 'column', height: '100%', transition: 'transform 0.2s, box-shadow 0.2s' }}
+    <div className="glass" style={{ borderRadius: 20, padding: 24, display: 'flex', flexDirection: 'column', height: '100%', transition: 'transform 0.2s' }}
       onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-4px)' }}
       onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.transform = 'translateY(0)' }}>
 
-      {/* Top row */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
+      {/* Top */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 14 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <span style={{ fontSize: 28 }}>{p.emoji}</span>
           <div>
@@ -66,36 +74,57 @@ function Card({ p }: { p: typeof projects[0] }) {
             <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 11, color: 'var(--text-muted)' }}>{p.subtitle}</div>
           </div>
         </div>
-        <span style={{ background: `${p.statusColor}18`, color: p.statusColor, border: `1px solid ${p.statusColor}30`, borderRadius: 999, padding: '3px 10px', fontSize: 11, fontFamily: 'JetBrains Mono, monospace', whiteSpace: 'nowrap', flexShrink: 0 }}>
-          {p.status}
-        </span>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 4 }}>
+          <span style={{ background: `${p.statusColor}18`, color: p.statusColor, border: `1px solid ${p.statusColor}30`, borderRadius: 999, padding: '3px 10px', fontSize: 11, fontFamily: 'JetBrains Mono, monospace', whiteSpace: 'nowrap' }}>
+            {p.status}
+          </span>
+          <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 10, color: 'var(--text-muted)' }}>{p.period}</span>
+        </div>
       </div>
 
       {/* Description */}
-      <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.65, marginBottom: 16 }}>{p.desc}</p>
+      <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.65, marginBottom: 14 }}>{p.desc}</p>
 
       {/* Highlights */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6, marginBottom: 16 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 5, marginBottom: 14 }}>
         {p.highlights.map(h => (
-          <div key={h} style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: 'var(--text-muted)' }}>
-            <span style={{ color: 'var(--accent)', fontSize: 10 }}>›</span> {h}
+          <div key={h} style={{ display: 'flex', alignItems: 'flex-start', gap: 5, fontSize: 12, color: 'var(--text-muted)' }}>
+            <span style={{ color: 'var(--accent)', fontSize: 10, marginTop: 2, flexShrink: 0 }}>›</span> {h}
           </div>
         ))}
       </div>
 
       {/* Tags */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 16 }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5, marginBottom: 16 }}>
         {p.tags.map(t => (
           <span key={t} style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', color: 'var(--text-secondary)', padding: '2px 8px', borderRadius: 6, fontSize: 11, fontFamily: 'JetBrains Mono, monospace' }}>{t}</span>
         ))}
       </div>
 
-      {/* Footer */}
-      <div style={{ marginTop: 'auto', paddingTop: 16, borderTop: '1px solid var(--border)', display: 'flex', gap: 16 }}>
-        <a href={p.github} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, fontFamily: 'JetBrains Mono, monospace', color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 0.2s' }}
+      {/* Footer links */}
+      <div style={{ marginTop: 'auto', paddingTop: 14, borderTop: '1px solid var(--border)', display: 'flex', gap: 12, flexWrap: 'wrap', alignItems: 'center' }}>
+        <a href={p.github} target="_blank" rel="noopener noreferrer"
+          style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 12, fontFamily: 'JetBrains Mono, monospace', color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 0.2s' }}
           onMouseEnter={e => (e.currentTarget.style.color = 'var(--accent)')}
           onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-muted)')}>
-          ⌥ View on GitHub
+          ⌥ GitHub
+        </a>
+        {p.live && (
+          <>
+            <span style={{ color: 'var(--border)' }}>·</span>
+            <a href={p.live} target="_blank" rel="noopener noreferrer"
+              style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 12, fontFamily: 'JetBrains Mono, monospace', color: 'var(--text-muted)', textDecoration: 'none', transition: 'color 0.2s' }}
+              onMouseEnter={e => (e.currentTarget.style.color = '#22c55e')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-muted)')}>
+              ● Live Demo
+            </a>
+          </>
+        )}
+        <a href={`/projects/${p.id}`}
+          style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 5, fontSize: 12, fontFamily: 'JetBrains Mono, monospace', color: 'var(--accent)', textDecoration: 'none', transition: 'opacity 0.2s' }}
+          onMouseEnter={e => (e.currentTarget.style.opacity = '0.7')}
+          onMouseLeave={e => (e.currentTarget.style.opacity = '1')}>
+          Full Details →
         </a>
       </div>
     </div>
@@ -111,19 +140,15 @@ export default function Projects() {
           <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(32px, 4vw, 48px)', fontWeight: 700, color: 'var(--text-primary)', margin: '16px 0 12px' }}>
             Things I've <span className="gradient-text">Built</span>
           </h2>
-          <p style={{ color: 'var(--text-secondary)', maxWidth: 480, margin: '0 auto' }}>
-            From hackathon-winning AI systems to production ML APIs — here's what I've shipped.
+          <p style={{ color: 'var(--text-secondary)', maxWidth: 480, margin: '0 auto', fontSize: 14 }}>
+            From hackathon-winning AI systems to production platforms — each with full technical breakdowns.
           </p>
         </div>
-
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 24 }}>
           {projects.map(p => <Card key={p.id} p={p} />)}
         </div>
-
         <div style={{ textAlign: 'center', marginTop: 40 }}>
-          <a href="https://github.com/nagamanibuddepu" target="_blank" rel="noopener noreferrer" className="btn-ghost">
-            ⌥ See all on GitHub
-          </a>
+          <a href="https://github.com/nagamanibuddepu" target="_blank" rel="noopener noreferrer" className="btn-ghost">⌥ All Repos on GitHub</a>
         </div>
       </div>
     </section>

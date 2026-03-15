@@ -1,17 +1,28 @@
 'use client'
 
 const categories = [
-  { title: 'Programming Languages', emoji: '💻', color: 'var(--accent)',
-    skills: [{ n: 'Python', l: 90 }, { n: 'Java', l: 80 }, { n: 'SQL', l: 85 }, { n: 'C', l: 75 }, { n: 'R', l: 65 }] },
-  { title: 'Data Science & ML', emoji: '🤖', color: 'var(--accent-2)',
-    skills: [{ n: 'Scikit-learn', l: 85 }, { n: 'Pandas & NumPy', l: 90 }, { n: 'XGBoost / LightGBM', l: 80 }, { n: 'Matplotlib', l: 85 }, { n: 'EDA & Data Cleaning', l: 90 }] },
-  { title: 'Web Development', emoji: '🌐', color: '#f59e0b',
-    skills: [{ n: 'Node.js', l: 75 }, { n: 'JavaScript', l: 75 }, { n: 'HTML & CSS', l: 85 }, { n: 'REST APIs', l: 80 }, { n: 'FastAPI / Flask', l: 70 }] },
-  { title: 'Databases & Tools', emoji: '🗄️', color: '#06b6d4',
-    skills: [{ n: 'PostgreSQL', l: 80 }, { n: 'MongoDB', l: 70 }, { n: 'Git & GitHub', l: 90 }, { n: 'Power BI', l: 65 }, { n: 'Linux', l: 70 }] },
+  {
+    title: 'Languages', emoji: '💻', color: 'var(--accent)',
+    skills: [{ n: 'Python', l: 92 }, { n: 'Java', l: 80 }, { n: 'SQL', l: 88 }, { n: 'C', l: 75 }, { n: 'R', l: 65 }],
+  },
+  {
+    title: 'Data Science & ML', emoji: '🤖', color: 'var(--accent-2)',
+    skills: [{ n: 'Pandas & NumPy', l: 92 }, { n: 'Scikit-learn', l: 85 }, { n: 'XGBoost & LightGBM', l: 82 }, { n: 'Matplotlib', l: 85 }, { n: 'Feature Engineering', l: 88 }],
+  },
+  {
+    title: 'Web Development', emoji: '🌐', color: '#f59e0b',
+    skills: [{ n: 'Next.js & React', l: 78 }, { n: 'Node.js', l: 78 }, { n: 'TypeScript', l: 72 }, { n: 'FastAPI', l: 70 }, { n: 'HTML & CSS', l: 88 }],
+  },
+  {
+    title: 'Databases & Tools', emoji: '🗄️', color: '#06b6d4',
+    skills: [{ n: 'PostgreSQL', l: 82 }, { n: 'MongoDB', l: 75 }, { n: 'Redis', l: 65 }, { n: 'Git & GitHub', l: 92 }, { n: 'BullMQ', l: 62 }],
+  },
 ]
 
-const pills = ['Python','Java','SQL','R','C','Pandas','NumPy','Scikit-learn','XGBoost','LightGBM','Matplotlib','Random Forest','EDA','Node.js','JavaScript','HTML','CSS','FastAPI','Flask','PostgreSQL','MongoDB','Git','GitHub','DSA','OOP','DBMS','OS','Hadoop','Spark','Power BI']
+const fundamentals = ['Data Structures & Algorithms', 'Object Oriented Programming', 'DBMS', 'Operating Systems']
+const tools = ['Git', 'GitHub', 'BullMQ', 'Puppeteer', 'Vercel', 'Recharts']
+const familiar = ['Hadoop', 'Apache Spark', 'Power BI', 'Flask', 'IFTTT Webhooks']
+const pills = ['Python','Java','SQL','TypeScript','C','R','Pandas','NumPy','Matplotlib','Scikit-learn','XGBoost','LightGBM','Random Forest','Feature Engineering','EDA','Next.js','Node.js','FastAPI','HTML','CSS','JavaScript','PostgreSQL','MongoDB','Redis','BullMQ','Puppeteer','Git','GitHub','Vercel']
 
 export default function Skills() {
   return (
@@ -24,10 +35,12 @@ export default function Skills() {
           <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(32px, 4vw, 48px)', fontWeight: 700, color: 'var(--text-primary)', margin: '16px 0 12px' }}>
             My <span className="gradient-text">Tech Arsenal</span>
           </h2>
-          <p style={{ color: 'var(--text-secondary)', maxWidth: 400, margin: '0 auto' }}>Tools, languages and frameworks I use daily.</p>
+          <p style={{ color: 'var(--text-secondary)', maxWidth: 420, margin: '0 auto', fontSize: 14 }}>
+            Languages, frameworks and tools I use to build production systems.
+          </p>
         </div>
 
-        {/* Skill categories */}
+        {/* Skill bars */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20, marginBottom: 20 }}>
           {categories.map(cat => (
             <div key={cat.title} className="glass" style={{ borderRadius: 20, padding: 22 }}>
@@ -52,11 +65,12 @@ export default function Skills() {
           ))}
         </div>
 
-        {/* Core CS & Familiar with */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16, marginBottom: 40 }}>
+        {/* Bottom pill groups */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16, marginBottom: 40 }}>
           {[
-            { title: '🧠 Core CS Fundamentals', items: ['Data Structures & Algorithms', 'Object Oriented Programming', 'DBMS', 'Operating Systems'], color: 'var(--accent)', glow: 'var(--accent-glow)' },
-            { title: '🔭 Familiar With', items: ['Hadoop', 'Apache Spark', 'Power BI', 'FastAPI', 'Flask'], color: 'var(--accent-2)', glow: 'var(--accent-2-glow)' },
+            { title: '🧠 CS Fundamentals', items: fundamentals, color: 'var(--accent)', glow: 'var(--accent-glow)' },
+            { title: '🔧 Dev Tools', items: tools, color: '#f59e0b', glow: 'rgba(245,158,11,0.12)' },
+            { title: '🔭 Familiar With', items: familiar, color: 'var(--accent-2)', glow: 'var(--accent-2-glow)' },
           ].map(g => (
             <div key={g.title} className="glass" style={{ borderRadius: 16, padding: 20 }}>
               <div style={{ fontWeight: 600, fontSize: 14, color: 'var(--text-primary)', marginBottom: 14 }}>{g.title}</div>
