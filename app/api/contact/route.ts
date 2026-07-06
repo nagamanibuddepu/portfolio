@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
       },
       body: JSON.stringify({
         from: 'Portfolio Contact <onboarding@resend.dev>',
-        to: ['mbuddepu0827@gmail.com'],
+        to: ['buddepunagamani@gmail.com'],
         reply_to: email,
         subject: `[Portfolio] ${subject} — from ${name}`,
         html: `
