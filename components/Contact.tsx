@@ -4,17 +4,31 @@ import { useState } from 'react'
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
   const update = (k: string, v: string) => setForm(f => ({ ...f, [k]: v }))
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault()
     setStatus('sending')
+    setErrorMessage(null)
     try {
       const res = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(form) })
-      setStatus(res.ok ? 'sent' : 'error')
-      if (res.ok) setForm({ name: '', email: '', subject: '', message: '' })
-    } catch { setStatus('error') }
+      const data = await res.json()
+
+      if (!res.ok) {
+        console.error('Contact submit failed', data)
+        setErrorMessage(data?.error || 'Failed to send message')
+        setStatus('error')
+      } else {
+        setStatus('sent')
+        setForm({ name: '', email: '', subject: '', message: '' })
+      }
+    } catch (error) {
+      console.error('Contact submit error', error)
+      setErrorMessage('Failed to send message')
+      setStatus('error')
+    }
     setTimeout(() => setStatus('idle'), 5000)
   }
 
@@ -108,6 +122,9 @@ export default function Contact() {
               <button type="submit" disabled={status === 'sending'} className="btn-primary" style={{ padding: '13px 24px', opacity: status === 'sending' ? 0.6 : 1 }}>
                 {status === 'sending' ? '⏳ Sending...' : status === 'sent' ? '✅ Message Sent!' : status === 'error' ? '❌ Try Again' : '✉️ Send Message'}
               </button>
+              {status === 'error' && errorMessage ? (
+                <p style={{ color: '#FF6B6B', fontSize: 13, marginTop: 10 }}>{errorMessage}</p>
+              ) : null}
             </form>
           </div>
         </div>
