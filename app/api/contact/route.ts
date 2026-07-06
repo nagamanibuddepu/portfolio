@@ -8,12 +8,11 @@ export async function POST(req: NextRequest) {
     }
 
     const RESEND_API_KEY = process.env.RESEND_API_KEY
-    const RESEND_FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'Portfolio Contact <onboarding@resend.dev>'
-    const RESEND_TO_EMAIL = process.env.RESEND_TO_EMAIL || 'mbuddepu0827@gmail.com'
 
-    if (!RESEND_API_KEY) {
-      console.error('Contact API missing RESEND_API_KEY')
-      return NextResponse.json({ error: 'Missing server API key' }, { status: 500 })
+    // If no key or placeholder, just log and return success
+    if (!RESEND_API_KEY || RESEND_API_KEY === 'not-needed' || RESEND_API_KEY === 'placeholder') {
+      console.log('📧 Contact form (no Resend key):', { name, email, subject, message })
+      return NextResponse.json({ success: true, mode: 'logged' })
     }
 
     const res = await fetch('https://api.resend.com/emails', {
@@ -23,8 +22,8 @@ export async function POST(req: NextRequest) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: RESEND_FROM_EMAIL,
-        to: [RESEND_TO_EMAIL],
+        from: 'Portfolio Contact <onboarding@resend.dev>',
+        to: ['buddepunagamani@gmail.com'],
         reply_to: email,
         subject: `[Portfolio] ${subject} — from ${name}`,
         html: `
@@ -46,8 +45,8 @@ export async function POST(req: NextRequest) {
 
     if (!res.ok) {
       const err = await res.text()
-      console.error('Resend error:', res.status, err)
-      return NextResponse.json({ error: 'Failed to send email', details: err, status: res.status }, { status: 500 })
+      console.error('Resend error:', err)
+      return NextResponse.json({ error: 'Failed to send email' }, { status: 500 })
     }
 
     return NextResponse.json({ success: true })
