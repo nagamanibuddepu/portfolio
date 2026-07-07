@@ -64,10 +64,10 @@ export default function Achievements() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 16, marginBottom: 40 }}>
           {[
             { icon: '🏆', label: 'SIH Finalist', value: '2025', sub: 'National Level' },
-            { icon: '⭐', label: 'CGPA', value: '9.30', sub: 'Out of 10.00' },
+            { icon: '⭐', label: 'CGPA', value: '9.28', sub: 'Out of 10.00' },
             { icon: '👥', label: 'Teams Outranked', value: '66K+', sub: 'In SIH 2025' },
             { icon: '🤖', label: 'Internship', value: 'AI', sub: 'Infosys Springboard' },
-            { icon: '📝', label: 'LeetCode', value: '140+', sub: 'Problems Solved' },
+            { icon: '📝', label: 'LeetCode', value: '230+', sub: 'Problems Solved' },
             { icon: '🟤', label: 'CodeChef', value: '650+', sub: 'Problems Solved' },
           ].map(s => (
             <div key={s.label} className="glass" style={{ borderRadius: 16, padding: 18, textAlign: 'center' }}>

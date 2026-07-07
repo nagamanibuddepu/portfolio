@@ -3,7 +3,7 @@
 export default function About() {
   const cards = [
     { icon: '🎓', label: 'Education', value: 'B.Tech CSE (Data Science)', sub: 'MLR Institute of Technology · 2023–2027 · CGPA 9.30' },
-    { icon: '💼', label: 'Current Role', value: 'AI Intern — Infosys Springboard', sub: 'Building PriceOptima — ML dynamic pricing system' },
+    { icon: '💼', label: 'Experience', value: 'AI Intern — Infosys Springboard', sub: 'Built PriceOptima — ML dynamic pricing system' },
     { icon: '📍', label: 'Location', value: 'Hyderabad, Telangana, India', sub: 'Open to remote and hybrid opportunities' },
     { icon: '🎂', label: 'Birthday', value: '27 January 2003', sub: 'Age 22 · Aquarius ♒' },
   ]
@@ -11,7 +11,7 @@ export default function About() {
   const timeline = [
     { year: '2023', color: 'var(--accent)', title: 'Started B.Tech CSE (Data Science)', desc: 'Joined MLR Institute of Technology. Started with 9.30 CGPA, diving into algorithms and data science.' },
     { year: '2025', color: 'var(--accent-2)', title: 'SIH 2025 Grand Finalist', desc: 'Selected from 68,000+ teams across India. Built AI-driven logistics optimizer for steel supply chain.' },
-    { year: '2026', color: 'var(--accent)', title: 'AI Intern — Infosys Springboard', desc: 'Working on PriceOptima — ML-based dynamic pricing using XGBoost & LightGBM to maximize revenue.' },
+    { year: '2026', color: 'var(--accent)', title: 'AI Intern — Infosys Springboard', desc: 'Worked on PriceOptima — ML-based dynamic pricing using XGBoost & LightGBM to maximize revenue.' },
     { year: '2027', color: 'var(--accent-2)', title: 'Expected Graduation', desc: 'Graduating with B.Tech CSE (Data Science), aiming for product company roles in AI/ML.' },
   ]
 

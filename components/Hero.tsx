@@ -68,7 +68,7 @@ export default function Hero() {
 
             {/* Bio */}
             <p className="anim-fade-up delay-3" style={{ color: 'var(--text-secondary)', fontSize: 15, lineHeight: 1.7, maxWidth: 480, margin: '0 0 20px' }}>
-              CSE (Data Science) student at <strong style={{ color: 'var(--text-primary)' }}>MLR Institute of Technology</strong> with a 9.30 CGPA.
+              CSE (Data Science) student at <strong style={{ color: 'var(--text-primary)' }}>MLR Institute of Technology</strong> with a 9.28 CGPA.
               AI intern at Infosys, SIH 2025 Grand Finalist, building intelligent systems that matter.
             </p>
 
@@ -130,7 +130,7 @@ export default function Hero() {
               {/* Stats grid */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 20 }}>
                 {[
-                  { label: 'CGPA', value: '9.30', sub: 'Out of 10' },
+                  { label: 'CGPA', value: '9.28', sub: 'Out of 10' },
                   { label: 'SIH 2025', value: '🏆', sub: 'Grand Finalist' },
                   { label: 'Internship', value: 'AI', sub: 'Infosys Springboard' },
                   { label: 'Projects', value: '4+', sub: 'Built & Deployed' },
